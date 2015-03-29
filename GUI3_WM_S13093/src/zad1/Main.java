@@ -52,7 +52,7 @@ public class Main {
 			System.out.println("");
 			System.out.println(max);
 
-			List<Integer> listaIndexow = new ArrayList();
+			List<Integer> listaIndexow = new ArrayList<Integer>();
 			int index = 0;
 			for (int i = 0; i < nums.length; i++) {
 				if (nums[i] == max) {
