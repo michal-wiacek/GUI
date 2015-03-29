@@ -9,6 +9,8 @@ package zad1;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -26,26 +28,36 @@ public static void main(String[] args) {
 			throw new NoSuchElementException();
     	}
 			int nextInt = sc.nextInt();
-			ArrayList<Integer> a = new ArrayList<Integer>();
-			//a.add(0, nextInt);
-			while(sc.hasNextInt()){
-			
-				a.add(0, nextInt);
+			List<Integer> a = new ArrayList<Integer>();
+			a.add(nextInt);
+			while(sc.hasNext()){
 				a.add(sc.nextInt());
 			}
-		System.out.println(a);
-	/*	Integer [] nums = a.toArray(new Integer[0]);
-	    for(int i = 0; i < nums.length; i++){
-	       System.out.println(nums[i]);
-	    }
-		*/
-
+			Integer [] nums = a.toArray(new Integer[a.size()]);
+			String lista = Arrays.toString(nums);
+			System.out.println(lista);
+			int max = Integer.MIN_VALUE;
+			for(int i = 0; i<nums.length; i++)
+			{
+				if(nums[i] > max){
+					max = nums[i];
+				}
+			}
+			System.out.println(max);
+			int largest = nums[0], index = 0;
+			for (int i = 1; i < nums.length; i++) {
+			  if ( nums[i] >= largest ) {
+			      largest = nums[i];
+			      index = i;
+			   }
+			}
+			System.out.println(index);
+			
     }
     
      catch (FileNotFoundException|NoSuchElementException e) {
 		System.out.println("***");
 		//e.printStackTrace();
 	}  
-    
-  }
+}
 }
