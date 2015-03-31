@@ -2,35 +2,38 @@ package zad1;
 
 public class Account extends Person {
 
-	public Account(String n) {
-		super(n);
+	public double balance = 0.0;
+	private static double stopaOprocentowania = 0.0;
+
+	public Account(double x) {
+		balance = x;
 	}
 
-	static double balance;
-	
-	public static void setInterestRate(double d) {
-		balance = 0;
-		
+	public void deposit(double cash) {
+		balance += cash;
 	}
 
-	public void deposit(int i) {
-		
-		
+	public void withdraw(double cash) {
+		balance -= cash;
+		if (balance < 0) {
+			balance = 0;
+		}
 	}
 
-	public void transfer(Account account, int i) {
-		
-		
+	public static void setInterestRate(double x) {
+		stopaOprocentowania = x;
 	}
 
-	public void withdraw(int i) {
-		
-		
+	public void transfer(Account p, double cash) {
+		if (cash > balance) {
+			cash = balance;
+		}
+		this.withdraw(cash);
+		p.deposit(cash);
 	}
 
 	public void addInterest() {
-		// TODO Auto-generated method stub
-		
+		balance = balance * (100 + stopaOprocentowania) / 100;
 	}
 
 }

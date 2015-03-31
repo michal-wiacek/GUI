@@ -20,7 +20,6 @@ public class Main {
 			Scanner sc = new Scanner(new File(fname));
 
 			int nextInt = sc.nextInt();
-			// System.out.println(nextInt);
 
 			List<Integer> a = new ArrayList<Integer>();
 			a.add(nextInt);
@@ -29,7 +28,6 @@ public class Main {
 				a.add(sc.nextInt());
 
 			}
-			// System.out.println(a);
 			sc.close();
 
 			Integer[] nums = a.toArray(new Integer[a.size()]);

@@ -16,8 +16,8 @@ public class Main {
     String fname = System.getProperty("user.home") + "/textforwords.txt";
     CountWords cw = new CountWords(fname);
     List<String> result = cw.getResult();
-    for (String wordRes : result) {
-      System.out.println(wordRes);
-    }
+  	for (String wordRes : result) {
+    System.out.println(wordRes);
+  	}
   }
 }
